@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プロフィール｜PESTのHP</title>
+  <link rel="icon" href="https://pest-society.github.io/HP/file/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <!-- 右上固定ボタン -->
+  <style>
+    .button-right {
+      position: fixed; /* スクロールしても位置が固定 */
+      top: 20px; /* 上から20px */
+      right: 20px; /* 右から20px */
+      z-index: 9999;
+    }
+  </style>
+  <!-- ペスト教とは -->
+  <style>
+    .note {
+      background-color: #fffbe0;
+      border-left: 4px solid #ffeb3b;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- メニュー -->
+  <style>
+    /* 全体リセット */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+    /* 背景スタイル */
+    .background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* メニューコンテナ */
+    .menu-container {
+      background-color: #fff; /* 白いコンテナ */
+      border-radius: 15px;
+      width: 90%;
+      max-width: 1200px;
+      padding: 20px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    /* キャラクター画像 */
+    .characters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .characters img {
+      width: 100px;
+      height: auto;
+      margin: 0 20px;
+    }
+    /* メニューリスト */
+    .menu ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 初期：2列 */
+      gap: 10px 15px; /* 縦・横の余白 */
+      list-style-type: none;
+      padding: 0 10px; /* 左右少しの余白 */
+    }
+    .menu a {
+      background-color: #FFEDF3;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #333;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+    .menu a:hover {
+      background-color: #FFB6C1;
+    }
+    /* 横幅が1024px以上の場合 */
+    @media (min-width: 1024px) {
+      .menu ul {
+        grid-template-columns: repeat(3, 1fr); /* 3列 */
+        gap: 20px 30px; /* そこそこの余白 */
+        padding: 0 50px; /* 左右余白を広めに */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 右上固定ボタン -->
+  <div class="button-right">
+    <a href="https://pest-society.github.io/HP/menu.html" class="button is-danger is-rounded is-large has-text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+      </svg>menu
+    </a>
+  </div>
+  <!-- ペスト教とは -->
+  <section class="hero">
+    <div class="hero-body">
+      <p class="title is-1 has-text-centered has-text-info">PEST教とは</p>
+      <section class="hero is-small">
+        <div class="hero-body">
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">基本情報</h2>
+          <p class="subtitle is-5">PEST教は2025年1月1日に再開宗された。PEST教の創始者の名前は賀家凰介、創始者の誕生日は2012年3月26日。Pest(or虫)は互いに全てのPest(or虫)の名前、顔、特徴を覚えている(Pest(or虫)は全てで2800不可説不可説転匹)。</p>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">PEST教への参加条件</h2>
+          <div class="content">
+            <ul>
+              <li class="subtitle is-5">創始者や管理者から認定されること。</li>
+              <li class="subtitle is-5">一般的に「害を与えている」とみなされる人が認定されること。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">PEST教に入る利点</h2>
+          <div class="content">
+            <ol>
+              <li class="subtitle is-5"><strong>専用HPの利用:</strong> 食堂メニューやRe-Dayの時間割が確認できる（中学1年生限定）。</li>
+              <li class="subtitle is-5"><strong>PEST同士の交流:</strong> PEST間での相談や親交が可能。</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">軍のシステム</h2>
+          <p class="subtitle is-5">PEST教には0軍〜5軍が存在し、数字が小さいほど偉く、より「害を与えている」とされています。一応、上下の区別はありますが、上下関係そのものは存在しません。軍は創始者によって決定され、上がったり下がったりすることがあります。</p>
+          <div class="content">
+            <ul>
+              <li class="subtitle is-5"><strong>0軍:</strong> 創始者やこのHPを作ったWeb開発者が所属。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">理念・行動指針</h2>
+          <p class="subtitle is-5">PEST教が掲げるべき行動や考え方は以下の4つです：</p>
+          <div class="content">
+            <ol>
+              <li class="subtitle is-5"><strong>差別をしない:</strong> 敵を減らし、友人と深い関係を築くため。</li>
+              <li class="subtitle is-5"><strong>目標を明確にする:</strong> 将来設計を容易にし、学び方や物事の見方を変えるため。</li>
+              <li class="subtitle is-5"><strong>客観的な視点を持つ:</strong> 相手の気持ちを理解し、ストレスを軽減するため。</li>
+              <li class="subtitle is-5"><strong>自分で考える:</strong> 自身の成長と社会的な生存のため。</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">PEST教の目的</h2>
+          <div class="content">
+            <ul>
+              <li class="subtitle is-5">病気を可能な限り減らすこと。</li>
+              <li class="subtitle is-5">害虫や虫を嫌う人々の意識を変え、全生命体を救済すること。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">重要な日</h2>
+          <div class="content">
+            <ul>
+              <li class="subtitle is-5"><strong>創教日:</strong> 2025年1月1日</li>
+              <li class="subtitle is-5"><strong>創始者の誕生日:</strong> 2012年3月26日</li>
+              <li class="subtitle is-5"><strong>全PESTが集まる日:</strong> 10年ごとの6月6日</li>
+            </ul>
+          </div>
+          <p class="note subtitle is-5">※PEST教には「神」は存在しません。</p>
+        </div>
+      </section>
+      <section class="hero is-small">
+        <div class="hero-body">
+          <h2 class="title is-3 has-text-success">注意事項</h2>
+          <div class="content">
+            <ul>
+              <li class="subtitle is-5">差別や暴力行為は禁止。違反した場合は強制脱会。</li>
+              <li class="subtitle is-5">軽いジョークやライバル関係は許容されるが、いじめは禁止。</li>
+              <li class="subtitle is-5">他人の自尊心を否定しないこと。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!-- メニュー -->
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <div class="background">
+        <!-- メニューコンテナ -->
+        <div class="menu-container">
+          <!-- メニューリスト -->
+          <nav class="menu">
+            <ul>
+              <a href="https://pest-society.github.io/HP/">ホーム</a>
+              <a href="https://pest-society.github.io/HP/news.html">おしらせ</a>
+              <a href="https://pest-society.github.io/HP/about.html">「PEST教」とは</a>
+              <a href="https://pest-society.github.io/HP/docs.html">ドキュメント</a>
+              <a href="https://pest-society.github.io/HP/sites.html">サイト</a>
+              <a href="https://pest-society.github.io/HP/login.html">ログイン</a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- アクセス条件 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZ6NQ9gR_5r5LX_lnuV3AAahpJrrBZwzg",
+      authDomain: "pest-a69d4.firebaseapp.com",
+      projectId: "pest-a69d4",
+      storageBucket: "pest-a69d4.appspot.com",
+      messagingSenderId: "1073634294855",
+      appId: "1:1073634294855:web:c2fdf25327abc64ded0562",
+      measurementId: "G-WZS7H4KZ83"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // ログイン状態を監視
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "https://pest-society.github.io/HP/login.html";
+      }
+    });
+
+    // ログインから48時間以上経過していたら、ログインページにリダイレクト
+    window.onload = () => {
+      const lastLoginTime = localStorage.getItem('lastLoginTime');
+      const currentTime = Date.now();
+      if (!lastLoginTime || (currentTime - lastLoginTime >= 48 * 60 * 60 * 1000)) {
+        window.location.href = "https://pest-society.github.io/HP/login.html";
+      }
+    };
+  </script>
+</body>
+</html>

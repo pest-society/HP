@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン｜PESTのHP</title>
+  <link rel="icon" href="https://pest-society.github.io/HP/file/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">ログイン</h1>
+        <div class="box">
+          <div class="field">
+            <label class="label">メールアドレス</label>
+            <div class="control">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" id="email" placeholder="メールアドレス">
+                <span class="icon is-small is-left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">パスワード</label>
+            <div class="control">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="password" id="password" placeholder="パスワード">
+                <span class="icon is-small is-left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                    <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2M2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary has-text-white" id="login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
+                  <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                </svg>
+                ログイン
+              </button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button is-link is-light is-small" id="forgot-password">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247m2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                </svg>ログインできない場合
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="message" class="notification is-hidden"></div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module">
+    // Firebase SDKのインポート
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+    // Firebase設定（自分の設定に置き換えてください）
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZ6NQ9gR_5r5LX_lnuV3AAahpJrrBZwzg",
+      authDomain: "pest-a69d4.firebaseapp.com",
+      projectId: "pest-a69d4",
+      storageBucket: "pest-a69d4.appspot.com",
+      messagingSenderId: "1073634294855",
+      appId: "1:1073634294855:web:c2fdf25327abc64ded0562",
+      measurementId: "G-WZS7H4KZ83"
+    };
+
+    // Firebaseの初期化
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // DOM要素の取得
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const messageDiv = document.getElementById('message');
+
+    // ログインページにアクセスする前に、ログイン済みならindex.htmlにリダイレクト
+    window.onload = () => {
+      const lastLoginTime = localStorage.getItem('lastLoginTime');
+      const currentTime = Date.now();
+      if (lastLoginTime && (currentTime - lastLoginTime < 48 * 60 * 60 * 1000)) {
+        if (window.location.pathname === "login.html") {
+          window.location.href = "https://pest-society.github.io/HP/";
+        }
+      }
+    };
+
+    // ログイン
+    document.getElementById('login').addEventListener('click', () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          localStorage.setItem('lastLoginTime', Date.now());
+          messageDiv.innerHTML = `
+          <span class="icon is-small">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+              <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
+              <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+            </svg>
+          </span>
+          <span>ログイン成功: ${userCredential.user.email}</span>
+          `;
+          messageDiv.classList.remove('is-danger');
+          messageDiv.classList.add('is-success');
+          messageDiv.classList.remove('is-hidden');
+          setTimeout(() => {
+            window.location.href = "https://pest-society.github.io/HP/";
+          }, 1000); // 1秒待機
+        })
+        .catch(error => {
+          messageDiv.innerHTML = `
+          <span class="icon is-small">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </span>
+        <span>エラー: ${error.message}</span>
+        `;
+        messageDiv.classList.add('is-danger');
+        messageDiv.classList.remove('is-hidden');
+      });
+    });
+
+    // パスワードを忘れた場合
+    document.getElementById('forgot-password').addEventListener('click', () => {
+      messageDiv.textContent = "メールアドレス及びパスワードに誤りがないか確認してください。パスワードのリセット又は新規アカウント作成を希望される方は開発者にご連絡ください。";
+      messageDiv.classList.remove('is-hidden');
+      messageDiv.classList.remove('is-danger');
+      messageDiv.classList.add('is-info');
+    });
+  </script>
+</body>
+</html>
