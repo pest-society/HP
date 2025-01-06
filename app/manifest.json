@@ -1,0 +1,19 @@
+{
+  "name": "ペスト教",
+  "start_url": "https://pest-society.github.io/HP/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#D1FFF8",
+  "icons": [
+    {
+      "src": "https://pest-society.github.io/HP/app/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://pest-society.github.io/HP/app/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
