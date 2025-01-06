@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ログイン｜PESTのHP</title>
+  <link rel="manifest" href="https://pest-society.github.io/HP/app/manifest.json">
   <link rel="icon" href="https://pest-society.github.io/HP/file/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
@@ -149,5 +150,36 @@
       messageDiv.classList.add('is-info');
     });
   </script>
+
+  <script>
+        let deferredPrompt;
+
+        // インストールプロンプトの準備
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // アラートでインストールを促す
+            alert("Would you like to install this app? Click OK to install.");
+            if (confirm("Do you want to install this app now?")) {
+                showInstallPrompt();
+            }
+        });
+
+        // インストールプロンプトを表示する関数
+        async function showInstallPrompt() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    alert('App installed successfully!');
+                } else {
+                    alert('Installation was cancelled.');
+                }
+                deferredPrompt = null;
+            }
+        }
+    </script>
+</body>
 </body>
 </html>
